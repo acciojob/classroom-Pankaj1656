@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("students")
 public class StudentController {
-    @Autowired
-    private Studentservice studentservice;
+//    @Autowired
+    private Studentservice studentservice =new Studentservice();
 
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudent(@RequestBody Student student){
@@ -41,28 +41,32 @@ public class StudentController {
 
     @GetMapping("/get-student-by-name/{name}")
     public ResponseEntity<Student> getStudentByName(@PathVariable String name){
-        Student student = studentservice.getStudentByName(name); // Assign student by calling service layer method
+        Student student = null;
+                student=studentservice.getStudentByName(name); // Assign student by calling service layer method
 
         return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-teacher-by-name/{name}")
     public ResponseEntity<Teacher> getTeacherByName(@PathVariable String name){
-        Teacher teacher = studentservice.getTeacherByName(name); // Assign student by calling service layer method
+        Teacher teacher = null;
+                teacher=studentservice.getTeacherByName(name); // Assign student by calling service layer method
 
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
     public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable String teacher){
-        List<String> students = studentservice.getStudentByTeacherName(teacher); // Assign list of student by calling service layer method
+        List<String> students =null;
+                students=studentservice.getStudentByTeacherName(teacher); // Assign list of student by calling service layer method
 
         return new ResponseEntity<>(students, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-students")
     public ResponseEntity<List<String>> getAllStudents(){
-        List<String> students = studentservice.getAllStudents(); // Assign list of student by calling service layer method
+        List<String> students = null;
+                students=studentservice.getAllStudents(); // Assign list of student by calling service layer method
 
         return new ResponseEntity<>(students, HttpStatus.CREATED);
     }

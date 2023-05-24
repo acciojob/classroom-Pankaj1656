@@ -5,16 +5,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+//@Service
 public class Studentservice {
-    @Autowired
-    private StudentRepository studentRepository;
+//    @Autowired
+    private StudentRepository studentRepository=new StudentRepository();
 
     public void addStudent(Student student) {
+
         studentRepository.addStudent(student);
     }
 
     public void addTeacher(Teacher teacher) {
+
         studentRepository.addTeacher(teacher);
     }
 
@@ -23,10 +25,12 @@ public class Studentservice {
     }
 
     public Student getStudentByName(String name) {
-       return studentRepository.getStudentByname(name);
+
+        return studentRepository.getStudentByname(name);
     }
 
     public Teacher getTeacherByName(String name) {
+
         return studentRepository.getTeacherByName(name);
     }
 
