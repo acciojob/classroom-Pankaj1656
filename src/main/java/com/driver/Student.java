@@ -1,5 +1,10 @@
 package com.driver;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Student {
 
     private String name;
@@ -8,5 +13,11 @@ public class Student {
 
     public Student(){
 
+    }
+
+    public Student(String name, int age, double averageScore) {
+        this.name = name;
+        this.age = age;
+        this.averageScore = averageScore;
     }
 }
